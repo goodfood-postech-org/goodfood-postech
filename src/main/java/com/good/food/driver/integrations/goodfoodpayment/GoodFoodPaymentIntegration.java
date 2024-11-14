@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.RequestParam;
   )
 public interface GoodFoodPaymentIntegration {
 
-  @PostMapping("/payment")
+  @PostMapping("/pagamento")
   public String obterQRCode(@RequestParam String idPedido, @RequestParam BigDecimal valor);
   
 }

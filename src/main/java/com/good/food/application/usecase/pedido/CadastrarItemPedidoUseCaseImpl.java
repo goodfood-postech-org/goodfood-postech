@@ -18,7 +18,6 @@ public class CadastrarItemPedidoUseCaseImpl implements CadastrarItemPedidoUseCas
   private final GoodFoodProductGateway goodFoodProductGateway;
 
   @Override
-  @Transactional
   public ItemPedido execute(final Pedido pedido,
       final ItemPedido itemPedido) {
     final Produto produto = goodFoodProductGateway.obterProduto(itemPedido.getProdutoId());

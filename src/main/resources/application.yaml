@@ -6,6 +6,7 @@ springdoc:
     path: /api-docs
   swagger-ui:
     path: /swagger-ui-custom.html
+    
 spring:
   data:
     redis:
@@ -16,6 +17,14 @@ spring:
     password: ${DATABASE_PASSWORD:postgres}
     driverClassName: org.postgresql.Driver
     url: ${DATABASE_URL:jdbc:postgresql://localhost:5432/food}
+    hikari:
+      validation-timeout: '3000'
+      idle-timeout: '60000'
+      maximum-pool-size: '500'
+      max-lifetime: '1800000'
+      connection-timeout: '600000'
+      minimum-idle: '20'
+    
   application:
     name: Good Food Service
   jpa:
@@ -29,7 +38,7 @@ food:
   integration:
     product:
       name: goodfood-product 
-      url: localhost:8081
+      url: svc-goodfood-product-postech-loadbalancer:8080
     payment:
       name: goodfood-payment 
-      url: localhost:8082
+      url: svc-goodfood-payment-postech-loadbalancer:8080

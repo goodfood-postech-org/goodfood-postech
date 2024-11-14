@@ -9,6 +9,7 @@ import org.springframework.stereotype.Component;
 import com.good.food.application.gateway.PedidoDatabaseGateway;
 import com.good.food.driver.db.repository.PedidoRepository;
 import com.good.food.driver.db.repository.entity.PedidoEntity;
+import jakarta.transaction.Transactional;
 import com.good.food.domain.Pedido;
 import com.good.food.driver.NotFoundException;
 
@@ -19,6 +20,7 @@ public class PedidoDatabaseGatewayImpl implements PedidoDatabaseGateway {
   private PedidoRepository pedidoRepository;
 
   @Override
+  @Transactional
   public Pedido save(Pedido pedido) {
     return pedidoRepository.save(new PedidoEntity(pedido)).toDomain();
   }
