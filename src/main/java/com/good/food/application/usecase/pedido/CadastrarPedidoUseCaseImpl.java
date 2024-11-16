@@ -8,7 +8,6 @@ import com.good.food.domain.EStatusPagamentoPedido;
 import com.good.food.domain.EStatusPedido;
 import com.good.food.domain.ItemPedido;
 import com.good.food.domain.Pedido;
-import jakarta.transaction.Transactional;
 import lombok.RequiredArgsConstructor;
 
 @Component
@@ -20,7 +19,6 @@ public class CadastrarPedidoUseCaseImpl implements CadastrarPedidoUseCase {
   private final GoodFoodPaymentGateway goodFoodPaymentGateway;
 
   @Override
-  @Transactional
   public Pedido execute(final Pedido newPedido, List<ItemPedido> itensPedido,
       final String clienteCpf) {
     newPedido.setStatus(EStatusPedido.RECEBIDO);
