@@ -14,14 +14,14 @@ public class BuscarPedidoUseCaseImpl implements BuscarPedidoUseCase {
 
   private final PedidoDatabaseGateway pedidoDatabaseGateway;
 
-  private final GoodFoodPaymentIntegration foodPaymentIntegration;
+//  private final GoodFoodPaymentIntegration foodPaymentIntegration;
   
   @Override
   public Pedido execute(UUID uuid) {
     final Pedido pedido = pedidoDatabaseGateway.findById(uuid);
     
-    final PagamentoResponse obterPagamento = foodPaymentIntegration.obterPagamento(pedido.getId().toString());
-    pedido.setStatusPagamento(obterPagamento.getStatus());
+//    final PagamentoResponse obterPagamento = foodPaymentIntegration.obterPagamento(pedido.getId().toString());
+//    pedido.setStatusPagamento(obterPagamento.getStatus());
     
     return pedido;
   }
