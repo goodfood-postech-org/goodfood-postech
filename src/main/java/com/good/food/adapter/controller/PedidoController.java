@@ -16,6 +16,5 @@ public interface PedidoController {
     PedidoResponse buscarPedido(String id);
 
     PedidoResponse cadastrarPedido(PedidoRequest pedidoRequest);
-
-    PedidoResponse webhookPedido(String idPedido);
+    
 }

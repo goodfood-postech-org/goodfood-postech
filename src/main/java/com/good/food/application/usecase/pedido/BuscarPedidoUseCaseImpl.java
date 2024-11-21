@@ -4,6 +4,8 @@ import java.util.UUID;
 import org.springframework.stereotype.Component;
 import com.good.food.application.gateway.PedidoDatabaseGateway;
 import com.good.food.domain.Pedido;
+import com.good.food.driver.integrations.goodfoodpayment.GoodFoodPaymentIntegration;
+import com.good.food.driver.integrations.goodfoodpayment.response.PagamentoResponse;
 import lombok.RequiredArgsConstructor;
 
 @Component
@@ -12,8 +14,15 @@ public class BuscarPedidoUseCaseImpl implements BuscarPedidoUseCase {
 
   private final PedidoDatabaseGateway pedidoDatabaseGateway;
 
+  private final GoodFoodPaymentIntegration foodPaymentIntegration;
+  
   @Override
   public Pedido execute(UUID uuid) {
-    return pedidoDatabaseGateway.findById(uuid);
+    final Pedido pedido = pedidoDatabaseGateway.findById(uuid);
+    
+    final PagamentoResponse obterPagamento = foodPaymentIntegration.obterPagamento(pedido.getId().toString());
+    pedido.setStatusPagamento(obterPagamento.getStatus());
+    
+    return pedido;
   }
 }

@@ -2,7 +2,9 @@ package com.good.food.application.usecase.pedido;
 
 import java.util.List;
 import org.springframework.stereotype.Component;
+import com.good.food.application.gateway.GoodFoodPaymentGateway;
 import com.good.food.application.gateway.PedidoDatabaseGateway;
+import com.good.food.domain.Pagamento;
 import com.good.food.domain.Pedido;
 import lombok.RequiredArgsConstructor;
 
@@ -12,8 +14,16 @@ public class BuscarTodosPedidosAbertosUseCaseImpl implements BuscarTodosPedidosA
 
     private final PedidoDatabaseGateway pedidoDatabaseGateway;
 
+    private final GoodFoodPaymentGateway paymentIntegration;
+    
     public List<Pedido> execute() {
-        return pedidoDatabaseGateway.findAllByStatusNotFinalizadoOrderByStatusAndDate();
-//        return pedidos.stream().map(pedidoPresenter::toResponse).collect(Collectors.toList());
+        return pedidoDatabaseGateway.findAllByStatusNotFinalizadoOrderByStatusAndDate()
+            .stream()
+            .map(pedido -> {
+              final Pagamento pagamento = paymentIntegration.obterPagamento(pedido.getId().toString());
+              pedido.setStatusPagamento(pagamento.getStatus());
+              
+              return pedido;
+            }).toList();
     }
 }

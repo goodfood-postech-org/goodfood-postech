@@ -13,7 +13,6 @@ import com.good.food.application.usecase.pedido.BuscarPedidoUseCase;
 import com.good.food.application.usecase.pedido.BuscarTodosPedidosAbertosUseCase;
 import com.good.food.application.usecase.pedido.CadastrarPedidoUseCase;
 import com.good.food.application.usecase.pedido.RegredirStatusUseCase;
-import com.good.food.application.usecase.pedido.WebhookPedidoUseCase;
 import lombok.RequiredArgsConstructor;
 
 @Component
@@ -25,7 +24,6 @@ public class PedidoControllerImpl implements PedidoController {
   private final RegredirStatusUseCase regredirStatus;
   private final BuscarTodosPedidosAbertosUseCase buscarTodosPedidosAbertos;
   private final BuscarPedidoUseCase buscarPedidoUseCase;
-  private final WebhookPedidoUseCase webhookPedidoUseCase;
   private final PedidoPresenter pedidoPresenter;
 
   @Override
@@ -56,10 +54,6 @@ public class PedidoControllerImpl implements PedidoController {
         pedidoRequest.getItemPedidos().stream().map(ItemPedidoRequest::toDomain).collect(Collectors.toList()),
         pedidoRequest.getClienteCPF()));
   }
-  
-  @Override
-  public PedidoResponse webhookPedido(String idPedido) {
-    return pedidoPresenter.toResponse(webhookPedidoUseCase.execute(idPedido));
-  }
+
   
 }

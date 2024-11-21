@@ -3,9 +3,7 @@ package com.good.food.application.presenter.pedido;
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Optional;
 import java.util.stream.Collectors;
-import com.good.food.domain.EStatusPagamentoPedido;
 import com.good.food.domain.Pedido;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -23,7 +21,7 @@ public class PedidoResponse {
   private LocalDate dataAtualizacao;
   private LocalDate dataCriacao;
   private String status;
-  private EStatusPagamentoPedido statusPagamento;
+  private String statusPagamento;
   private String qrData;
 
   public PedidoResponse(Pedido pedido) {
