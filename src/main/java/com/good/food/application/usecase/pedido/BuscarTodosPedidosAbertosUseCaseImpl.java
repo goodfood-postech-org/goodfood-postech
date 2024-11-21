@@ -26,4 +26,5 @@ public class BuscarTodosPedidosAbertosUseCaseImpl implements BuscarTodosPedidosA
               return pedido;
             }).toList();
     }
+  
 }
