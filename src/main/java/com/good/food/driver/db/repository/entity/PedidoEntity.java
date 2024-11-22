@@ -3,22 +3,17 @@ package com.good.food.driver.db.repository.entity;
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Optional;
 import java.util.UUID;
 import java.util.stream.Collectors;
-
 import org.apache.commons.collections4.CollectionUtils;
-import com.good.food.domain.EStatusPagamentoPedido;
 import com.good.food.domain.EStatusPedido;
 import com.good.food.domain.Pedido;
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
-import jakarta.persistence.FetchType;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
-import jakarta.persistence.ManyToOne;
 import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
 import lombok.AllArgsConstructor;
@@ -47,7 +42,6 @@ public class PedidoEntity {
   private LocalDate dataCriacao;
   
   private EStatusPedido status;
-  private EStatusPagamentoPedido statusPagamento;
   private String qrData;
 
   public PedidoEntity(Pedido pedido) {
@@ -59,7 +53,6 @@ public class PedidoEntity {
     dataAtualizacao = pedido.getDataAtualizacao();
     dataCriacao = pedido.getDataCriacao();
     status = pedido.getStatus();
-    statusPagamento = pedido.getStatusPagamento();
     qrData = pedido.getQrData();
     nome = pedido.getNome();
     cpf = pedido.getCpf();
@@ -77,7 +70,6 @@ public class PedidoEntity {
         .status(status)
         .nome(nome)
         .cpf(cpf)
-        .statusPagamento(statusPagamento)
         .qrData(qrData)
       .build();
   }

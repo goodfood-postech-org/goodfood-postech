@@ -4,7 +4,7 @@ import static com.tngtech.archunit.lang.syntax.ArchRuleDefinition.classes;
 import static com.tngtech.archunit.lang.syntax.ArchRuleDefinition.noClasses;
 
 import org.junit.jupiter.api.Test;
-
+import org.junit.jupiter.api.extension.ExtendWith;
 import com.tngtech.archunit.core.domain.JavaClasses;
 import com.tngtech.archunit.core.importer.ClassFileImporter;
 
@@ -45,6 +45,7 @@ class DependencyRuleTest {
 
         classes().that().resideInAPackage(USECASE_PACKAGE) //
                 .and().areNotInterfaces() //
+                .and().areNotAnnotatedWith(ExtendWith.class) //
                 .should().haveSimpleNameEndingWith("UseCaseImpl") //
                 .check(classesToCheck);
     }

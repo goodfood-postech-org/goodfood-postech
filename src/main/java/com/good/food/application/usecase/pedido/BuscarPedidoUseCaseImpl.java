@@ -11,7 +11,7 @@ import lombok.RequiredArgsConstructor;
 public class BuscarPedidoUseCaseImpl implements BuscarPedidoUseCase {
 
   private final PedidoDatabaseGateway pedidoDatabaseGateway;
-
+  
   @Override
   public Pedido execute(UUID uuid) {
     return pedidoDatabaseGateway.findById(uuid);

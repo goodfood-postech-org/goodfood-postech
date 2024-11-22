@@ -4,7 +4,6 @@ import java.util.List;
 import org.springframework.stereotype.Component;
 import com.good.food.application.gateway.GoodFoodPaymentGateway;
 import com.good.food.application.gateway.PedidoDatabaseGateway;
-import com.good.food.domain.EStatusPagamentoPedido;
 import com.good.food.domain.EStatusPedido;
 import com.good.food.domain.ItemPedido;
 import com.good.food.domain.Pedido;
@@ -22,7 +21,7 @@ public class CadastrarPedidoUseCaseImpl implements CadastrarPedidoUseCase {
   public Pedido execute(final Pedido newPedido, List<ItemPedido> itensPedido,
       final String clienteCpf) {
     newPedido.setStatus(EStatusPedido.RECEBIDO);
-    newPedido.setStatusPagamento(EStatusPagamentoPedido.PENDENTE);
+    newPedido.setStatusPagamento("Pendente");
     
     final Pedido pedidoSaved = pedidoDatabaseGateway.save(newPedido);
     

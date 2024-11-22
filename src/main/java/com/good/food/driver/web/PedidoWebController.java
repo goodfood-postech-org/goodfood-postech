@@ -147,22 +147,4 @@ public class PedidoWebController {
         return ResponseEntity.created(URI.create("/" + pedidoResponse.getId())).body(pedidoResponse);
     }
 
-    @ApiResponses(value = {
-            @ApiResponse(code = 200, message = "Ok")
-    })
-    @ResponseStatus(code = HttpStatus.CREATED)
-    @PutMapping(path = "/pagamento/webhook/{idPedido}")
-    @Operation(
-            summary = "Atualiza o status do pagamento do pedido para PAGO",
-            description = "Atualiza o status do pagamento do pedido para PAGO",
-            parameters = @io.swagger.v3.oas.annotations.Parameter(
-                    name = "idPedido",
-                    description = "ID do pedido",
-                    required = true,
-                    example = "123e4567-e89b-12d3-a456-426614174000"
-            )
-    )
-    public ResponseEntity<PedidoResponse> webhookPedido(@PathVariable String idPedido) {
-        return ResponseEntity.ok().body(pedidoController.webhookPedido(idPedido));
-    }
 }

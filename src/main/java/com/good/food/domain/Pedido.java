@@ -21,10 +21,9 @@ public class Pedido {
   private LocalDate dataAtualizacao;
   private LocalDate dataCriacao;
   private EStatusPedido status;
-  private EStatusPagamentoPedido statusPagamento;
   private String qrData;
-
-
+  private String statusPagamento;
+  
   public BigDecimal obterTotalPedido() {
     return itemPedido.stream().map(ItemPedido::obterTotalItem).reduce(BigDecimal.ZERO, BigDecimal::add);
   }
