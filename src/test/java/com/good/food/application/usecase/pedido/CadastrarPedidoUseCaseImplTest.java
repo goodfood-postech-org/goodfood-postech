@@ -44,10 +44,6 @@ public class CadastrarPedidoUseCaseImplTest {
     when(cadastrarItemPedido.execute(ped, itemPed)).thenReturn(itemPed);
     
     provider.execute(ped, List.of(itemPed), "123.312.321-55");
-    
-    
-    
-    
   }
   
 }
