@@ -1,8 +1,5 @@
 package com.good.food.driver.integrations;
 
-import com.good.food.domain.Pagamento;
-import com.good.food.driver.integrations.goodfoodpayment.GoodFoodPaymentIntegration;
-import com.good.food.driver.integrations.goodfoodpayment.response.PagamentoResponse;
 import com.good.food.driver.integrations.goodfoodproduct.GoodFoodProductIntegration;
 import com.good.food.driver.integrations.goodfoodproduct.response.ProdutoResponse;
 import org.junit.jupiter.api.Test;
@@ -15,7 +12,6 @@ import java.math.BigDecimal;
 import java.util.UUID;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.ArgumentMatchers.anyString;
 import static org.mockito.Mockito.when;
 

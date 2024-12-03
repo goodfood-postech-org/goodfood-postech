@@ -7,16 +7,12 @@ import com.good.food.application.presenter.pedido.PedidoResponse;
 import com.good.food.application.usecase.pedido.*;
 import com.good.food.domain.EStatusPedido;
 import com.good.food.domain.Pedido;
-import com.good.food.driver.integrations.GoodFoodProductGatewayImpl;
-import com.good.food.driver.integrations.goodfoodproduct.GoodFoodProductIntegration;
-import com.good.food.driver.integrations.goodfoodproduct.response.ProdutoResponse;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
 
-import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.UUID;

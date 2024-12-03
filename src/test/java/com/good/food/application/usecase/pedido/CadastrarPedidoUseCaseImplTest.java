@@ -1,13 +1,11 @@
 package com.good.food.application.usecase.pedido;
 
 import static org.mockito.ArgumentMatchers.any;
-import static org.mockito.ArgumentMatchers.anyString;
 import static org.mockito.Mockito.when;
 import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.UUID;
-import org.assertj.core.util.Arrays;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.InjectMocks;
@@ -16,7 +14,6 @@ import org.mockito.junit.jupiter.MockitoExtension;
 import com.good.food.application.gateway.GoodFoodPaymentGateway;
 import com.good.food.application.gateway.PedidoDatabaseGateway;
 import com.good.food.domain.ItemPedido;
-import com.good.food.domain.Pagamento;
 import com.good.food.domain.Pedido;
 
 @ExtendWith(MockitoExtension.class)
