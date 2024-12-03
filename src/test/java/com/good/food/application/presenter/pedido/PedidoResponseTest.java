@@ -34,6 +34,38 @@ public class PedidoResponseTest {
             "qrData");
 
     assertNotNull(pedidoResponse);
+
     assertEquals(pedidoResponse.getCpf(), "123");
+    pedidoResponse.setCpf("321");
+    assertEquals(pedidoResponse.getCpf(), "321");
+
+    assertEquals(pedidoResponse.getId(), "id");
+    pedidoResponse.setId("id2");
+    assertEquals(pedidoResponse.getId(), "id2");
+
+    assertEquals(pedidoResponse.getNome(), "nome");
+    pedidoResponse.setNome("nome2");
+    assertEquals(pedidoResponse.getNome(), "nome2");
+
+    assertEquals(pedidoResponse.getStatus(), "status");
+    pedidoResponse.setStatus("status2");
+    assertEquals(pedidoResponse.getStatus(), "status2");
+
+    assertEquals(pedidoResponse.getStatusPagamento(), "statusPagamento");
+    pedidoResponse.setStatusPagamento("statusPagamento2");
+    assertEquals(pedidoResponse.getStatusPagamento(), "statusPagamento2");
+
+    assertEquals(pedidoResponse.getQrData(), "qrData");
+    pedidoResponse.setQrData("qrData2");
+    assertEquals(pedidoResponse.getQrData(), "qrData2");
+
+    assertEquals(pedidoResponse.getDataAtualizacao(), LocalDate.now());
+    pedidoResponse.setDataAtualizacao(LocalDate.now().plusDays(1));
+    assertEquals(pedidoResponse.getDataAtualizacao(), LocalDate.now().plusDays(1));
+
+    assertEquals(pedidoResponse.getDataCriacao(), LocalDate.now());
+    pedidoResponse.setDataCriacao(LocalDate.now().plusDays(1));
+    assertEquals(pedidoResponse.getDataCriacao(), LocalDate.now().plusDays(1));
+
   }
 }

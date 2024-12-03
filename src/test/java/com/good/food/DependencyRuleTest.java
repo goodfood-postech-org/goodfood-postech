@@ -87,7 +87,8 @@ class DependencyRuleTest {
         String importPackages = ROOT_PACKAGE + "..";
         JavaClasses classesToCheck = new ClassFileImporter().importPackages(importPackages);
 
-        classes().that().resideInAPackage(ADAPTER_PRESENTERS_PACKAGE) //
+        classes().that().resideInAPackage(ADAPTER_PRESENTERS_PACKAGE)
+                .and().areNotAnnotatedWith(ExtendWith.class) //
                 .should().haveSimpleNameEndingWith("PresenterImpl") //
                 .check(classesToCheck);
     }

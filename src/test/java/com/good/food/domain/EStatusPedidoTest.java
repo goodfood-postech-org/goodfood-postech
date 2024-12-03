@@ -7,7 +7,7 @@ import org.mockito.junit.jupiter.MockitoExtension;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 @ExtendWith(MockitoExtension.class)
-public class EStatusPedidoCategoriaTest {
+public class EStatusPedidoTest {
 
   @Test
   void test() {
@@ -25,11 +25,13 @@ public class EStatusPedidoCategoriaTest {
   void testNext() {
     EStatusPedido statusPedido = EStatusPedido.PRONTO;
     assertEquals(statusPedido.next(), EStatusPedido.FINALIZADO);
+    assertEquals(statusPedido.next(), EStatusPedido.FINALIZADO);
   }
 
   @Test
   void testPrevious() {
-    EStatusPedido statusPedido = EStatusPedido.PRONTO;
-    assertEquals(statusPedido.previous(), EStatusPedido.EM_PREPARACAO);
+    EStatusPedido statusPedido = EStatusPedido.EM_PREPARACAO;
+    assertEquals(statusPedido.previous(), EStatusPedido.RECEBIDO);
+    assertEquals(statusPedido.previous(), EStatusPedido.RECEBIDO);
   }
 }
