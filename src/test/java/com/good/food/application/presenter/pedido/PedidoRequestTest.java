@@ -25,10 +25,24 @@ public class PedidoRequestTest {
     PedidoRequest pedidoRequest = new PedidoRequest("123", "nome", new ArrayList<>());
 
     assertNotNull(pedidoRequest);
+
     assertEquals(pedidoRequest.getClienteCPF(), "123");
+    pedidoRequest.setClienteCPF("321");
+    assertEquals(pedidoRequest.getClienteCPF(), "321");
+
+    assertEquals(pedidoRequest.getClienteNome(), "nome");
+    pedidoRequest.setClienteNome("nome2");
+    assertEquals(pedidoRequest.getClienteNome(), "nome2");
+
+  }
+
+  @Test
+  public void deveCriarPedidoRequestDomain() {
+    PedidoRequest pedidoRequest = new PedidoRequest("123", "nome", new ArrayList<>());
 
     Pedido pedido = pedidoRequest.toDomain();
     assertNotNull(pedido);
     assertEquals(pedido.getCpf(), "123");
   }
+
 }

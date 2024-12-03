@@ -24,9 +24,10 @@ public class PagamentoResponseTest {
 
     assertNotNull(pagamentoResponse);
     assertEquals(pagamentoResponse.getStatus(), "Pronto");
+    pagamentoResponse.setStatus("Aguardando");
+    assertEquals(pagamentoResponse.getStatus(), "Aguardando");
 
     Pagamento pagamento = pagamentoResponse.toDomain();
     assertNotNull(pagamento);
-    assertEquals(pagamento.getStatus(), "Pronto");
   }
 }

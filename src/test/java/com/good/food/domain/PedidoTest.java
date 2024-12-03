@@ -29,7 +29,6 @@ public class PedidoTest {
             "321"
     );
 
-
     assertEquals(itemPedido.getId(), uuid);
     itemPedido.setId(uuid2);
     assertEquals(itemPedido.getId(), uuid2);
