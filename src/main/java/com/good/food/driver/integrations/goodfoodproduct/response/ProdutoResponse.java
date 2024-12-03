@@ -24,7 +24,6 @@ public class ProdutoResponse {
           .categoria(categoria)
           .preco(preco)        
         .build();
-    
   }
   
 }
